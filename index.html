@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>贪吃蛇游戏</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <h1>贪吃蛇</h1>
+        <div class="game-info">
+            <span class="score">得分: <span id="score">0</span></span>
+            <span class="high-score">最高分: <span id="high-score">0</span></span>
+            <span class="god-mode" id="godMode">👑 无敌: <span id="godStatus">关</span></span>
+        </div>
+        <canvas id="gameCanvas"></canvas>
+        <div class="controls">
+            <button id="startBtn">开始游戏</button>
+            <button id="pauseBtn">暂停</button>
+            <button id="resetBtn">重新开始</button>
+            <button id="godBtn" class="creator-btn">👑 创造者模式</button>
+        </div>
+        
+        <div class="touch-controls">
+            <div class="touch-row">
+                <button class="touch-btn" id="touchUp">↑</button>
+            </div>
+            <div class="touch-row">
+                <button class="touch-btn" id="touchLeft">←</button>
+                <button class="touch-btn" id="touchDown">↓</button>
+                <button class="touch-btn" id="touchRight">→</button>
+            </div>
+        </div>
+        
+        <div class="settings-section">
+            <div class="settings-group">
+                <label>🎨 背景主题:</label>
+                <select id="bgSelect">
+                    <option value="dark">深色空间</option>
+                    <option value="forest">森林绿意</option>
+                    <option value="ocean">海洋深蓝</option>
+                    <option value="sunset">日落余晖</option>
+                    <option value="neon">霓虹灯光</option>
+                    <option value="wallpaper">民族少女</option>
+                </select>
+            </div>
+            <div class="settings-group">
+                <label>🎵 背景音乐:</label>
+                <button id="bgMusicBtn" class="sound-btn">🎶 开启</button>
+            </div>
+            <div class="settings-group">
+                <label>🔊 音效:</label>
+                <button id="soundBtn" class="sound-btn">🔊 开启</button>
+            </div>
+        </div>
+        
+        <div class="instructions">
+            <p>使用方向键 ↑ ↓ ← → 或 WASD 控制蛇的移动方向</p>
+            <p>按空格键暂停/继续游戏</p>
+            <p>按 G 键切换无敌模式（创造者专属）</p>
+        </div>
+        <div class="ranking-section">
+            <h2>🏆 排行榜</h2>
+            <div id="rankingList"></div>
+        </div>
+    </div>
+    
+    <div id="modalOverlay" class="modal-overlay">
+        <div class="modal">
+            <h2 id="modalTitle">请输入你的名字</h2>
+            <input type="text" id="modalInput" placeholder="输入内容..." />
+            <div class="modal-buttons">
+                <button id="modalConfirm">确定</button>
+                <button id="modalCancel">取消</button>
+            </div>
+        </div>
+    </div>
+    <script src="game.js"></script>
+</body>
+</html>
